@@ -1,0 +1,101 @@
+@import "tailwindcss";
+
+/* Optional variant for dark mode */
+@custom-variant dark (&:is(.dark *));
+
+@config "../../tailwind.config.js";
+
+/* ----------------------------
+    GLOBAL THEME (BLACK + GOLD)
+   ---------------------------- */
+@layer base {
+  :root {
+    --background: #0d0d0d;       /* deep black */
+    --foreground: #ffffff;       /* white text */
+
+    --primary: #C49A60;          /* gold */
+    --primary-foreground: #ffffff;
+
+    --secondary: #171717;        /* soft black */
+    --secondary-foreground: #ffffff;
+
+    --border: #C49A60;           /* gold borders */
+  }
+
+  .dark {
+    --background: #0b0b0b;
+    --foreground: #ffffff;
+
+    --primary: #C49A60;
+    --primary-foreground: #ffffff;
+
+    --secondary: #111111;
+    --secondary-foreground: #ffffff;
+
+    --border: #C49A60;
+  }
+}
+
+/* ----------------------------
+      TYPOGRAPHY
+   ---------------------------- */
+:root {
+  --font-inter: 'Inter', sans-serif;
+  --font-montserrat: 'Montserrat', sans-serif;
+  --font-monda: 'Monda', sans-serif;
+  --font-arimo: 'Arimo', sans-serif;
+  --radius: 0.625rem;
+}
+
+.font-inter {
+  font-family: var(--font-inter);
+}
+.font-montserrat {
+  font-family: var(--font-montserrat);
+}
+.font-monda {
+  font-family: var(--font-monda);
+}
+.font-arimo {
+  font-family: var(--font-arimo);
+}
+
+.font-playfair {
+  font-family: var(--font-playfair);
+}
+
+.font-cormorant {
+  font-family: var(--font-cormorant);
+}
+
+
+/* ----------------------------
+   SHADCN TOKEN MAPPING
+   ---------------------------- */
+@theme inline {
+  --radius-sm: calc(var(--radius) - 4px);
+  --radius-md: calc(var(--radius) - 2px);
+  --radius-lg: var(--radius);
+  --radius-xl: calc(var(--radius) + 4px);
+
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+  --color-primary: var(--primary);
+  --color-primary-foreground: var(--primary-foreground);
+  --color-secondary: var(--secondary);
+  --color-secondary-foreground: var(--secondary-foreground);
+  --color-border: var(--border);
+}
+
+/* ----------------------------
+   BASE STYLES
+   ---------------------------- */
+@layer base {
+  * {
+    @apply border-border;
+  }
+  
+  body {
+    @apply bg-background text-foreground;
+  }
+}
