@@ -53,7 +53,7 @@ export default function Footer() {
 
       {/* Divider Line */}
       <div className="relative z-10 max-w-7xl mx-auto mt-10 border-t border-[#C49A60]/30"></div>
-
+    
     </footer>
   );
 }
