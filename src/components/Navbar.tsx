@@ -1,5 +1,6 @@
 "use client";
 
+import Link from "next/link";
 import { useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { ChevronDown } from "lucide-react";
@@ -26,7 +27,7 @@ export const Navbar = () => {
           items-center space-x-10 font-montserrat tracking-wide
         "
       >
-        <NavItem label="HOME" />
+        <NavItem label="HOME" href="/"/>
         
         {/* COURSES WITH ANIMATION */}
         <div className="relative">
@@ -63,37 +64,41 @@ export const Navbar = () => {
           </AnimatePresence>
         </div>
 
-        <NavItem label="ABOUT" />
-        <NavItem label="GALLERY" />
-        <NavItem label="CAREER" />
-        <NavItem label="CONTACT" />
+        <NavItem label="ABOUT" href="/about"/>
+        <NavItem label="GALLERY" href="/about"/>
+        <NavItem label="CAREER" href="/about"/>
+        <NavItem label="CONTACT" href="/contact"/>
       </div>
     </motion.nav>
   );
 };
 
 
-const NavItem = ({ label }: { label: string }) => (
-  <motion.a
-    whileHover={{
-      scale: 1.1,
-      y: -2,
-    }}
-    transition={{
-      type: "spring",
-      stiffness: 300,
-      damping: 15,
-    }}
-    className="
-      text-white 
-      hover:text-gold 
-      font-montserrat 
-      tracking-wide 
-      transition-colors
-    "
-  >
-    {label}
-  </motion.a>
+
+const NavItem = ({ label, href }: { label: string; href: string }) => (
+  <Link href={href}>
+    <motion.a
+      whileHover={{
+        scale: 1.1,
+        y: -2,
+      }}
+      transition={{
+        type: "spring",
+        stiffness: 300,
+        damping: 15,
+      }}
+      className="
+        text-white 
+        hover:text-gold 
+        font-montserrat 
+        tracking-wide 
+        transition-colors
+        cursor-pointer
+      "
+    >
+      {label}
+    </motion.a>
+  </Link>
 );
 
 
