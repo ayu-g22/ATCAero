@@ -12,6 +12,7 @@ module.exports = {
         gold: "#C49A60",
         gold2: "#D3AF6B",
         goldSoft: "#E7C88F",
+        red: "#B72041",       
         blackDeep: "#0D0D0D",
         blackSoft: "#171717",
         whiteSoft: "#F6F4EF",

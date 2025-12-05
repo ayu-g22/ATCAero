@@ -41,22 +41,22 @@ export const HeroSection = () => {
               <span className="text-3xl sm:text-xl md:text-3xl font-bold text-white">
                 with
               </span>
-              <span className="text-5xl sm:text-3xl md:text-5xl font-arimo md:text-5xl font-bold text-[#D9A74A] drop-shadow-lg">
+              <span className="text-5xl sm:text-3xl md:text-5xl font-arimo md:text-5xl font-bold text-gold drop-shadow-lg">
                 ATC AERO
               </span>
             </div>
           </div>
 
           {/* Description Box with Left Border Accent */}
-          <div className="pl-6 border-l-4 border-[#D9A74A] bg-white/5 backdrop-blur-sm py-4 rounded-r-xl max-w-xl">
+          <div className="pl-6 border-l-4 border-gold bg-white/5 backdrop-blur-sm py-4 rounded-r-xl max-w-xl">
             <p className="text-gray-200 text-md sm:text-lg leading-relaxed font-inter">
-              Join India’s leading aviation training academy for <span className="text-[#D9A74A] font-semibold">Pilot</span>, <span className="text-[#D9A74A] font-semibold">Cabin Crew</span>, Drone, and Airport Operation Courses.
+              Join India’s leading aviation training academy for <span className="text-gold font-semibold">Pilot</span>, <span className="text-gold font-semibold">Cabin Crew</span>, Drone, and Airport Operation Courses.
             </p>
           </div>
 
           {/* CTA Buttons */}
           <div className="flex flex-wrap gap-5 pt-4">
-            <button className="px-10 py-4 bg-[#D9A74A] text-black font-bold font-monda text-sm uppercase tracking-widest rounded-full shadow-[0_0_25px_rgba(217,167,74,0.4)] hover:bg-white hover:scale-105 transition-all duration-300">
+            <button className="px-10 py-4 bg-gold border border-black/80  text-black font-bold font-monda text-sm uppercase tracking-widest rounded-full shadow-[0_0_25px_rgba(217,167,74,0.4)] hover:bg-white hover:scale-105 transition-all duration-300">
               Enquire Now
             </button>
             
@@ -80,7 +80,7 @@ export const HeroSection = () => {
             key={index}
             href={href}
             className="w-12 h-12 flex items-center justify-center rounded-full border border-white/20 bg-black/20 text-white 
-                       hover:bg-[#D9A74A] hover:border-[#D9A74A] hover:text-black transition-all duration-300 backdrop-blur-md group"
+                       hover:bg-gold hover:border-gold hover:text-black transition-all duration-300 backdrop-blur-md group"
           >
             <Icon size={20} strokeWidth={1.5} className="group-hover:scale-110 transition-transform" />
           </a>
