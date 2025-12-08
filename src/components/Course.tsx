@@ -99,19 +99,39 @@ export const Course = () => {
 
           return (
             <div
-              key={card.id}
-              onClick={() => setOpenCard(card.id)}
-              className={`
-                ${card.bg} ${card.text}
-                rounded-2xl sm:rounded-3xl shadow-xl transition-all duration-500 overflow-hidden 
-                cursor-pointer mt-[-8px] sm:mt-[-10px] w-full sm:w-[85%] md:w-[80%]
-              `}
-              style={{
-                height: isOpen ? openHeight : collapsedHeight,
-                padding: isOpen ? "20px" : "14px",
-              }}
-            >
-              <p className={`text-center ${isOpen ? "text-xl sm:text-2xl" : "text-sm sm:text-base"} ${isOpen ? "font-semibold" : "font-bold"} transition-all duration-300`}>
+  key={card.id}
+  onMouseEnter={() => setOpenCard(card.id)}
+  onMouseLeave={() => {
+    if (card.id !== "pilot") {
+      setOpenCard("pilot"); // default card stays open
+    }
+  }}
+  className={`
+    ${card.bg} ${card.text}
+    rounded-2xl sm:rounded-3xl shadow-xl transition-all duration-500 
+    cursor-pointer mt-[-8px] sm:mt-[-10px] w-full sm:w-[85%] md:w-[80%]
+  `}
+  style={{
+    height: isOpen ? openHeight : collapsedHeight,
+    padding: isOpen ? "20px" : "14px",
+    transform: isOpen
+      ? "perspective(1000px) translateZ(60px) scale(1.08)"
+      : "perspective(1000px) translateZ(0) scale(1)",
+    transition: "all 0.4s ease",
+    boxShadow: isOpen
+      ? "0 20px 40px rgba(0,0,0,0.35)"
+      : "0 4px 12px rgba(0,0,0,0.15)",
+    zIndex: isOpen ? 20 : 1,
+    position: "relative",
+  }}
+>
+
+              <p
+                className={`
+                  text-center transition-all duration-300
+                  ${isOpen ? "text-xl sm:text-2xl font-semibold" : "text-sm sm:text-base font-bold"}
+                `}
+              >
                 {card.title}
               </p>
 

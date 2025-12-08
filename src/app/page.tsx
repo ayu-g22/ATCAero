@@ -15,9 +15,20 @@ export default function Home() {
       <Navbar />
 
       <HeroSection />
-      <Course />
-      <AboutSection/>
-      <StatsSection/>
+      <div 
+  className="
+    bg-red 
+    rounded-t-[90px] 
+    mt-[-40px] 
+    pt-24 
+    pb-10
+    relative z-20
+  "
+>
+  <Course />
+</div>
+
+      <AboutSection/> 
       <div className="w-full h-28 bg-[#F7F5F0]"></div>
       <WhyChooseUs />
       <Testimonials/>
