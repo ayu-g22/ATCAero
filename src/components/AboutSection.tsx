@@ -6,6 +6,21 @@ export const AboutSection = () => {
     return (
         <section id="black-bg" className="w-full bg-blackDeep py-16 sm:py-20 md:py-24 lg:py-32 relative overflow-hidden">
 
+
+            {/* CONTENT */}
+            <div className="max-w-7xl mx-auto px-4 sm:px-6 md:px-8 lg:px-12 relative z-10">
+
+                {/* GRID LAYOUT */}
+                <div className="grid grid-cols-1 lg:grid-cols-2 gap-10 sm:gap-12 md:gap-16 lg:gap-20 items-center">
+
+                    {/* TEXT CONTENT - Left on desktop, top on mobile */}
+                    <div className="text-white order-1 lg:order-1 text-center lg:text-left">
+                        <p className="text-gold font-bold tracking-[0.2em] sm:tracking-[0.25em] font-montserrat text-sm sm:text-base md:text-lg mb-4 sm:mb-5 md:mb-6">
+                            ABOUT ATC
+                        </p>
+
+
+                        <h2 className="font-playfair text-5xl leading-[1.1] font-semibold mb-10">
             {/* BACKGROUND IMAGE */}
             <div className="absolute inset-0 z-0 opacity-20">
                 <Image
@@ -29,6 +44,7 @@ export const AboutSection = () => {
                         </p>
 
                         <h2 className="font-playfair text-3xl sm:text-4xl md:text-5xl leading-tight sm:leading-[1.1] font-semibold mb-6 sm:mb-8 md:mb-10">
+
                             Your Trusted <br />
                             Partner in <br />
                             Aviation Training
@@ -36,6 +52,7 @@ export const AboutSection = () => {
 
                         <p className="font-inter text-white/80 text-sm sm:text-base md:text-lg leading-relaxed max-w-xl mx-auto lg:mx-0">
                             ATC is a premier aviation training institute offering
+
                             expert-led programs in Pilot Training, Cabin Crew, Drone Operations,
                             and Airport Management with DGCA-approved curriculum and global
                             affiliations.
@@ -133,7 +150,6 @@ export const AboutSection = () => {
                 </div>
 
             </div>
-                
         </section>
     );
 };

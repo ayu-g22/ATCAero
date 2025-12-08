@@ -74,6 +74,14 @@ export const Course = () => {
   }
 
   return (
+
+      {/* LEFT SIDE */}
+      <div className="px-6 sm:px-8 md:px-10 lg:px-16 xl:px-20 py-12 sm:py-16 md:py-20 flex flex-col justify-center">
+        <h2 className="text-3xl sm:text-4xl md:text-5xl font-montserrat font-bold leading-tight text-white">
+          Explore Our <br /> Aviation Courses
+        </h2>
+
+        <p className="mt-6 text-gray-600 leading-relaxed font-inter text-lg max-w-lg">
     <section id="red-bg" className="bg-red w-full grid grid-cols-1 lg:grid-cols-2">
 
       {/* LEFT SIDE */}
@@ -82,11 +90,13 @@ export const Course = () => {
           Explore Our <br /> Aviation Courses
         </h2>
         <p className="mt-4 sm:mt-5 md:mt-6 text-white leading-relaxed font-inter text-sm sm:text-base md:text-lg max-w-lg">
+
           Discover a wide range of professional aviation courses including Pilot
           Training, Cabin Crew, Drone Operations, and Airport Management
           designed to build a successful career in aviation.
         </p>
         <button className="px-8 sm:px-10 py-3 sm:py-4 mt-8 sm:mt-12 md:mt-16 bg-gold w-full sm:w-64 text-white font-bold font-monda text-xs sm:text-sm uppercase tracking-widest rounded-full shadow-[0_0_25px_rgba(217,167,74,0.4)] hover:scale-105 transition-all duration-300">
+
           CONTACT US
         </button>
       </div>
@@ -97,6 +107,16 @@ export const Course = () => {
         {cards.map((card) => {
           const isOpen = openCard === card.id;
 
+        {/* Row 3 – Big Golden Block */}
+        <div className="bg-[#D3AF6B] text-black p-6 rounded-md shadow-lg mt-14">
+          <h3 className="text-2xl font-montserrat font-semibold mb-3">
+            Airport Operations Courses
+          </h3>
+          <p className="text-black/80 leading-relaxed font-inter">
+            Specialized training in fire fighting, cargo handling, aviation security
+            & air traffic operations to prepare you for critical airport management roles.
+          </p>
+        </div>
           return (
             <div
               key={card.id}
@@ -114,6 +134,7 @@ export const Course = () => {
               <p className={`text-center ${isOpen ? "text-xl sm:text-2xl" : "text-sm sm:text-base"} ${isOpen ? "font-semibold" : "font-bold"} transition-all duration-300`}>
                 {card.title}
               </p>
+
 
               {isOpen && (
                 <p className="mt-2 sm:mt-3 opacity-90 leading-relaxed text-xs sm:text-sm">
