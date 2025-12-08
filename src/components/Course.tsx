@@ -1,5 +1,5 @@
 "use client";
-import { useState } from "react";
+import { useState, useEffect } from "react";
 
 export const Course = () => {
   const [openCard, setOpenCard] = useState("pilot");
@@ -45,19 +45,19 @@ export const Course = () => {
 
   // Responsive heights
   const getCollapsedHeight = () => {
-    if (typeof window !== 'undefined') {
-      if (window.innerWidth < 640) return 60; // mobile
-      if (window.innerWidth < 768) return 65; // small tablet
-      return 70; // desktop
+    if (typeof window !== "undefined") {
+      if (window.innerWidth < 640) return 60;
+      if (window.innerWidth < 768) return 65;
+      return 70;
     }
     return 70;
   };
 
   const getOpenHeight = () => {
-    if (typeof window !== 'undefined') {
-      if (window.innerWidth < 640) return 280; // mobile
-      if (window.innerWidth < 768) return 300; // small tablet
-      return 320; // desktop
+    if (typeof window !== "undefined") {
+      if (window.innerWidth < 640) return 280;
+      if (window.innerWidth < 768) return 300;
+      return 320;
     }
     return 320;
   };
@@ -65,23 +65,16 @@ export const Course = () => {
   const [collapsedHeight, setCollapsedHeight] = useState(getCollapsedHeight());
   const [openHeight, setOpenHeight] = useState(getOpenHeight());
 
-  // Update heights on resize
-  if (typeof window !== 'undefined') {
-    window.addEventListener('resize', () => {
+  useEffect(() => {
+    const handleResize = () => {
       setCollapsedHeight(getCollapsedHeight());
       setOpenHeight(getOpenHeight());
-    });
-  }
+    };
+    window.addEventListener("resize", handleResize);
+    return () => window.removeEventListener("resize", handleResize);
+  }, []);
 
   return (
-
-      {/* LEFT SIDE */}
-      <div className="px-6 sm:px-8 md:px-10 lg:px-16 xl:px-20 py-12 sm:py-16 md:py-20 flex flex-col justify-center">
-        <h2 className="text-3xl sm:text-4xl md:text-5xl font-montserrat font-bold leading-tight text-white">
-          Explore Our <br /> Aviation Courses
-        </h2>
-
-        <p className="mt-6 text-gray-600 leading-relaxed font-inter text-lg max-w-lg">
     <section id="red-bg" className="bg-red w-full grid grid-cols-1 lg:grid-cols-2">
 
       {/* LEFT SIDE */}
@@ -89,34 +82,24 @@ export const Course = () => {
         <h2 className="text-3xl sm:text-4xl md:text-5xl font-montserrat font-bold leading-tight text-white">
           Explore Our <br /> Aviation Courses
         </h2>
+
         <p className="mt-4 sm:mt-5 md:mt-6 text-white leading-relaxed font-inter text-sm sm:text-base md:text-lg max-w-lg">
-
           Discover a wide range of professional aviation courses including Pilot
-          Training, Cabin Crew, Drone Operations, and Airport Management
-          designed to build a successful career in aviation.
+          Training, Cabin Crew, Drone Operations, and Airport Management designed
+          to build a successful career in aviation.
         </p>
-        <button className="px-8 sm:px-10 py-3 sm:py-4 mt-8 sm:mt-12 md:mt-16 bg-gold w-full sm:w-64 text-white font-bold font-monda text-xs sm:text-sm uppercase tracking-widest rounded-full shadow-[0_0_25px_rgba(217,167,74,0.4)] hover:scale-105 transition-all duration-300">
 
+        <button className="px-8 sm:px-10 py-3 sm:py-4 mt-8 sm:mt-12 md:mt-16 bg-gold w-full sm:w-64 text-white font-bold font-monda text-xs sm:text-sm uppercase tracking-widest rounded-full shadow-[0_0_25px_rgba(217,167,74,0.4)] hover:scale-105 transition-all duration-300">
           CONTACT US
         </button>
       </div>
 
-     {/* RIGHT SIDE — In-Place Accordion Stack */}
+      {/* RIGHT SIDE */}
       <div className="px-6 sm:px-8 md:px-10 lg:px-16 xl:px-20 py-12 sm:py-16 md:py-20 text-white flex flex-col items-center lg:items-start">
 
         {cards.map((card) => {
           const isOpen = openCard === card.id;
 
-        {/* Row 3 – Big Golden Block */}
-        <div className="bg-[#D3AF6B] text-black p-6 rounded-md shadow-lg mt-14">
-          <h3 className="text-2xl font-montserrat font-semibold mb-3">
-            Airport Operations Courses
-          </h3>
-          <p className="text-black/80 leading-relaxed font-inter">
-            Specialized training in fire fighting, cargo handling, aviation security
-            & air traffic operations to prepare you for critical airport management roles.
-          </p>
-        </div>
           return (
             <div
               key={card.id}
@@ -131,10 +114,14 @@ export const Course = () => {
                 padding: isOpen ? "20px" : "14px",
               }}
             >
-              <p className={`text-center ${isOpen ? "text-xl sm:text-2xl" : "text-sm sm:text-base"} ${isOpen ? "font-semibold" : "font-bold"} transition-all duration-300`}>
+              <p
+                className={`
+                  text-center transition-all duration-300
+                  ${isOpen ? "text-xl sm:text-2xl font-semibold" : "text-sm sm:text-base font-bold"}
+                `}
+              >
                 {card.title}
               </p>
-
 
               {isOpen && (
                 <p className="mt-2 sm:mt-3 opacity-90 leading-relaxed text-xs sm:text-sm">
@@ -144,8 +131,8 @@ export const Course = () => {
             </div>
           );
         })}
-      </div>
 
+      </div>
     </section>
   );
 };
