@@ -15,9 +15,7 @@ export default function Home() {
       <Navbar />
 
       <HeroSection />
-      <div className="w-full h-28 bg-[#F6F4EF]"></div>
       <Course />
-      <div className="w-full h-28 bg-[#F6F4EF]"></div>
       <AboutSection/>
       <StatsSection/>
       <div className="w-full h-28 bg-[#F7F5F0]"></div>

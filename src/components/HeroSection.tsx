@@ -36,22 +36,6 @@ export const HeroSection = () => {
               </span>
             </h1>
             
-<<<<<<< Updated upstream
-            <div className="flex items-center gap-4">
-              <span className="text-3xl sm:text-xl md:text-3xl font-bold text-white">
-                with
-              </span>
-              <span className="text-5xl sm:text-3xl md:text-5xl font-arimo md:text-5xl font-bold text-[#D9A74A] drop-shadow-lg">
-                ATC AERO
-              </span>
-            </div>
-          </div>
-
-          {/* Description Box with Left Border Accent */}
-          <div className="pl-6 border-l-4 border-[#D9A74A] bg-white/5 backdrop-blur-sm py-4 rounded-r-xl max-w-xl">
-            <p className="text-gray-200 text-md sm:text-lg leading-relaxed font-inter">
-              Join India’s leading aviation training academy for <span className="text-[#D9A74A] font-semibold">Pilot</span>, <span className="text-[#D9A74A] font-semibold">Cabin Crew</span>, Drone, and Airport Operation Courses.
-=======
             <div className="flex items-center">
               <h2 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-extrabold font-arimo text-gold drop-shadow-lg">
                 Aviation Training Center
@@ -63,18 +47,14 @@ export const HeroSection = () => {
           <div className="py-2 sm:py-3 md:py-4 max-w-xl">
             <p className="text-gray-200 text-xs sm:text-sm md:text-base lg:text-lg leading-relaxed font-inter">
               Join India's leading aviation training academy for <span className="text-gold font-semibold">Pilot</span>, <span className="text-gold font-semibold">Cabin Crew</span>, Drone, and Airport Operation Courses.
->>>>>>> Stashed changes
+
             </p>
           </div>
 
           {/* CTA Buttons */}
-<<<<<<< Updated upstream
-          <div className="flex flex-wrap gap-5 pt-4">
-            <button className="px-10 py-4 bg-[#D9A74A] text-black font-bold font-monda text-sm uppercase tracking-widest rounded-full shadow-[0_0_25px_rgba(217,167,74,0.4)] hover:bg-white hover:scale-105 transition-all duration-300">
-=======
           <div className="flex flex-col sm:flex-row flex-wrap gap-2 sm:gap-3 md:gap-4 lg:gap-5 pt-1 sm:pt-2 md:pt-4">
             <button className="px-5 sm:px-6 md:px-8 lg:px-10 py-2.5 sm:py-3 md:py-3.5 lg:py-4 bg-gold border border-black/80 text-black font-bold font-monda text-xs sm:text-sm uppercase tracking-widest rounded-full shadow-[0_0_25px_rgba(217,167,74,0.4)] hover:bg-white hover:scale-105 transition-all duration-300">
->>>>>>> Stashed changes
+
               Enquire Now
             </button>
             
@@ -86,30 +66,8 @@ export const HeroSection = () => {
         </div>
       </div>
 
-<<<<<<< Updated upstream
-      {/* 3. SOCIAL SIDEBAR (Left Aligned) */}
-      <div className="absolute left-6 sm:left-10 top-1/2 -translate-y-1/2 flex flex-col gap-6 z-30 hidden lg:flex">
-        {[
-          { Icon: Facebook, href: "#" },
-          { Icon: Instagram, href: "#" },
-          { Icon: Twitter, href: "#" },
-          { Icon: Youtube, href: "#" },
-        ].map(({ Icon, href }, index) => (
-          <a
-            key={index}
-            href={href}
-            className="w-12 h-12 flex items-center justify-center rounded-full border border-white/20 bg-black/20 text-white 
-                       hover:bg-[#D9A74A] hover:border-[#D9A74A] hover:text-black transition-all duration-300 backdrop-blur-md group"
-          >
-            <Icon size={20} strokeWidth={1.5} className="group-hover:scale-110 transition-transform" />
-          </a>
-        ))}
-      </div>
-
-      {/* 4. WHATSAPP FLOATING ACTION BUTTON */}
-=======
       {/* 3. WHATSAPP FLOATING ACTION BUTTON */}
->>>>>>> Stashed changes
+
       <a
         href="https://wa.me/917668843739"
         target="_blank"
