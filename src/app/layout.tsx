@@ -35,7 +35,7 @@ const arimo = Arimo({
 });
 
 export const metadata = {
-  title: "ATC Aero",
+  title: "ATC",
   description: "Aviation Academy Website",
 };
 

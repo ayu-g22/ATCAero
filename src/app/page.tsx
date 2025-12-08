@@ -18,7 +18,7 @@ export default function Home() {
       <Course />
       <AboutSection/>
       <StatsSection/>
-      <div className="w-full h-28 bg-[#F6F4EF]"></div>
+      <div className="w-full h-28 bg-[#F7F5F0]"></div>
       <WhyChooseUs />
       <Testimonials/>
       <FAQ />
