@@ -138,7 +138,7 @@ export default function ContactPage() {
                 type="submit"
                 disabled={loading}
                 className="
-                  w-full bg-gradient-to-r from-[#d4a043] to-[#b67a12]
+                  w-full bg-gold
                   text-black font-monda text-lg py-4 rounded-xl shadow 
                   hover:opacity-90 transition disabled:opacity-50 disabled:cursor-not-allowed
                 "
@@ -156,7 +156,7 @@ export default function ContactPage() {
 
             <h2 className="text-4xl lg:text-5xl font-cormorant font-semibold mt-6 leading-tight">
               Get In Touch <br />
-              <span className="text-gold">With ATCAero</span>
+              <span className="text-gold">With ATC</span>
             </h2>
 
             {/* PHONE */}
