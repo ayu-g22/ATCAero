@@ -1,5 +1,5 @@
 "use client";
-import { useState, useEffect } from "react";
+import { useState } from "react";
 
 export const Course = () => {
   const [openCard, setOpenCard] = useState("pilot");
@@ -45,19 +45,19 @@ export const Course = () => {
 
   // Responsive heights
   const getCollapsedHeight = () => {
-    if (typeof window !== "undefined") {
-      if (window.innerWidth < 640) return 60;
-      if (window.innerWidth < 768) return 65;
-      return 70;
+    if (typeof window !== 'undefined') {
+      if (window.innerWidth < 640) return 60; // mobile
+      if (window.innerWidth < 768) return 65; // small tablet
+      return 70; // desktop
     }
     return 70;
   };
 
   const getOpenHeight = () => {
-    if (typeof window !== "undefined") {
-      if (window.innerWidth < 640) return 280;
-      if (window.innerWidth < 768) return 300;
-      return 320;
+    if (typeof window !== 'undefined') {
+      if (window.innerWidth < 640) return 280; // mobile
+      if (window.innerWidth < 768) return 300; // small tablet
+      return 320; // desktop
     }
     return 320;
   };
@@ -65,14 +65,13 @@ export const Course = () => {
   const [collapsedHeight, setCollapsedHeight] = useState(getCollapsedHeight());
   const [openHeight, setOpenHeight] = useState(getOpenHeight());
 
-  useEffect(() => {
-    const handleResize = () => {
+  // Update heights on resize
+  if (typeof window !== 'undefined') {
+    window.addEventListener('resize', () => {
       setCollapsedHeight(getCollapsedHeight());
       setOpenHeight(getOpenHeight());
-    };
-    window.addEventListener("resize", handleResize);
-    return () => window.removeEventListener("resize", handleResize);
-  }, []);
+    });
+  }
 
   return (
     <section id="red-bg" className="bg-red w-full grid grid-cols-1 lg:grid-cols-2">
@@ -82,19 +81,17 @@ export const Course = () => {
         <h2 className="text-3xl sm:text-4xl md:text-5xl font-montserrat font-bold leading-tight text-white">
           Explore Our <br /> Aviation Courses
         </h2>
-
         <p className="mt-4 sm:mt-5 md:mt-6 text-white leading-relaxed font-inter text-sm sm:text-base md:text-lg max-w-lg">
           Discover a wide range of professional aviation courses including Pilot
-          Training, Cabin Crew, Drone Operations, and Airport Management designed
-          to build a successful career in aviation.
+          Training, Cabin Crew, Drone Operations, and Airport Management
+          designed to build a successful career in aviation.
         </p>
-
         <button className="px-8 sm:px-10 py-3 sm:py-4 mt-8 sm:mt-12 md:mt-16 bg-gold w-full sm:w-64 text-white font-bold font-monda text-xs sm:text-sm uppercase tracking-widest rounded-full shadow-[0_0_25px_rgba(217,167,74,0.4)] hover:scale-105 transition-all duration-300">
           CONTACT US
         </button>
       </div>
 
-      {/* RIGHT SIDE */}
+     {/* RIGHT SIDE — In-Place Accordion Stack */}
       <div className="px-6 sm:px-8 md:px-10 lg:px-16 xl:px-20 py-12 sm:py-16 md:py-20 text-white flex flex-col items-center lg:items-start">
 
         {cards.map((card) => {
@@ -102,18 +99,32 @@ export const Course = () => {
 
           return (
             <div
-              key={card.id}
-              onClick={() => setOpenCard(card.id)}
-              className={`
-                ${card.bg} ${card.text}
-                rounded-2xl sm:rounded-3xl shadow-xl transition-all duration-500 overflow-hidden 
-                cursor-pointer mt-[-8px] sm:mt-[-10px] w-full sm:w-[85%] md:w-[80%]
-              `}
-              style={{
-                height: isOpen ? openHeight : collapsedHeight,
-                padding: isOpen ? "20px" : "14px",
-              }}
-            >
+  key={card.id}
+  onMouseEnter={() => setOpenCard(card.id)}
+  onMouseLeave={() => {
+    if (card.id !== "pilot") {
+      setOpenCard("pilot");
+    }
+  }}
+  className={`
+    ${card.bg} ${card.text}
+    rounded-2xl sm:rounded-3xl shadow-xl transition-all duration-500 
+    cursor-pointer mt-4 sm:mt-[-10px] w-full sm:w-[85%] md:w-[80%]
+    ${isOpen ? "flex flex-col justify-start" : "flex items-center justify-center"}
+  `}
+  style={{
+    height: isOpen ? openHeight : collapsedHeight,
+    padding: isOpen ? "20px" : "0px",  // NO PADDING in collapsed state
+    transition: "all 0.4s ease",
+    boxShadow: isOpen
+      ? "0 20px 40px rgba(0,0,0,0.35)"
+      : "0 4px 12px rgba(0,0,0,0.15)",
+    zIndex: isOpen ? 20 : 1,
+    position: "relative",
+  }}
+>
+
+
               <p
                 className={`
                   text-center transition-all duration-300
@@ -131,8 +142,8 @@ export const Course = () => {
             </div>
           );
         })}
-
       </div>
+
     </section>
   );
 };
