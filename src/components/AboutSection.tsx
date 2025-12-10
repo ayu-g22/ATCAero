@@ -135,9 +135,6 @@ export const AboutSection = () => {
                 </div>
 
             </div>
-          </div>
-        </div>
-      </div>
 
       {/* STATS SECTION */}
       <div className="pt-24">
