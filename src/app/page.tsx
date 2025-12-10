@@ -10,7 +10,7 @@ import Footer from "../components/Footer";
 
 export default function Home() {
   return (
-    <div className="min-h-screen text-white font-sans bg-[#0F0F0F]">
+    <div className="min-h-screen text-white font-sans bg-black">
 
       <Navbar />
 
@@ -29,7 +29,6 @@ export default function Home() {
 </div>
 
       <AboutSection/> 
-      <div className="w-full h-28 bg-[#F7F5F0]"></div>
       <WhyChooseUs />
       <Testimonials/>
       <FAQ />

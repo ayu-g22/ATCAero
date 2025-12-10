@@ -78,7 +78,7 @@ export const Course = () => {
     <section id="red-bg" className="bg-red w-full grid grid-cols-1 lg:grid-cols-2">
 
       {/* LEFT SIDE */}
-      <div className="px-6 sm:px-8 md:px-10 lg:px-16 xl:px-20 py-12 sm:py-16 md:py-20 flex flex-col justify-center">
+      <div className="px-6 sm:px-8 md:px-16 lg:px-20 xl:px-20 py-12 sm:py-16 md:py-20 flex flex-col justify-center">
         <h2 className="text-3xl sm:text-4xl md:text-5xl font-montserrat font-bold leading-tight text-white">
           Explore Our <br /> Aviation Courses
         </h2>
