@@ -1,6 +1,8 @@
 "use client";
 
 import Image from "next/image";
+import FlipCard from "./FlipCard";
+import { StatsSection } from "./StatsSection";
 
 export const AboutSection = () => {
     return (
@@ -133,7 +135,14 @@ export const AboutSection = () => {
                 </div>
 
             </div>
-                
-        </section>
-    );
+          </div>
+        </div>
+      </div>
+
+      {/* STATS SECTION */}
+      <div className="pt-24">
+          <StatsSection />
+        </div>
+    </section>
+  );
 };
