@@ -1,5 +1,7 @@
 "use client";
 
+import FlipBox from "./FlipBox";
+
 export const WhyChooseUs = () => {
   return (
     <section className="w-full bg-[#F7F5F0] py-12 sm:py-16 md:py-20 lg:py-24">
@@ -29,74 +31,93 @@ export const WhyChooseUs = () => {
         <div className="w-full lg:w-[70%]">
 
           {/* GRID - Responsive columns */}
-          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8 sm:gap-10 md:gap-12 lg:gap-x-16 xl:gap-x-28 lg:gap-y-16 xl:gap-y-28">
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 md: lg:gap-x-16 xl:gap-x-8 lg:gap-y-16 xl:gap-y-20">
 
-            {/* ITEM 01 */}
-            <div className="text-center sm:text-left">
-              <h3 className="font-cormorant text-[#C49A60] text-3xl sm:text-4xl mb-2 sm:mb-3">01</h3>
-              <h4 className="font-cormorant text-xl sm:text-2xl text-[#1A1A1A] mb-2 sm:mb-3">
-                DGCA-Approved Training
-              </h4>
-              <p className="font-cormorant text-gray-600 text-sm sm:text-base leading-relaxed">
-                We provide courses that meet DGCA standards for
-                top-notch aviation education.
-              </p>
-            </div>
+  <FlipBox
+    front={
+      <div className="text-center">
+        <h3 className="text-4xl text-black font-cormorant">01</h3>
+        <h4 className="text-2xl text-black font-cormorant">DGCA-Approved Training</h4>
+      </div>
+    }
+    back={
+      <p className="text-white font-cormorant text-sm sm:text-base leading-relaxed">
+        We provide courses that meet DGCA standards for top-notch aviation education.
+      </p>
+    }
+  />
 
-            {/* ITEM 02 */}
-            <div className="text-center sm:text-left">
-              <h3 className="font-cormorant text-[#C49A60] text-3xl sm:text-4xl mb-2 sm:mb-3">02</h3>
-              <h4 className="font-cormorant text-xl sm:text-2xl text-[#1A1A1A] mb-2 sm:mb-3">
-                Industry-Relevant Curriculum
-              </h4>
-              <p className="font-cormorant text-gray-600 text-sm sm:text-base leading-relaxed">
-                Stay ahead with courses designed according to the latest aviation industry trends.
-              </p>
-            </div>
+  <FlipBox
+    front={
+      <div className="text-center">
+        <h3 className="text-4xl text-black font-cormorant">02</h3>
+        <h4 className="text-2xl text-black font-cormorant">Industry-Relevant Curriculum</h4>
+      </div>
+    }
+    back={
+      <p className="text-white font-cormorant text-sm sm:text-base leading-relaxed">
+        Stay ahead with courses designed around aviation industry trends.
+      </p>
+    }
+  />
 
-            {/* ITEM 03 */}
-            <div className="text-center sm:text-left">
-              <h3 className="font-cormorant text-[#C49A60] text-3xl sm:text-4xl mb-2 sm:mb-3">03</h3>
-              <h4 className="font-cormorant text-xl sm:text-2xl text-[#1A1A1A] mb-2 sm:mb-3">
-                Global Opportunities
-              </h4>
-              <p className="font-cormorant text-gray-600 text-sm sm:text-base leading-relaxed">
-                Career opportunities via global partnerships and tie-ups worldwide.
-              </p>
-            </div>
+  <FlipBox
+    front={
+      <div className="text-center">
+        <h3 className="text-4xl text-black font-cormorant">03</h3>
+        <h4 className="text-2xl text-black font-cormorant">Global Opportunities</h4>
+      </div>
+    }
+    back={
+      <p className="text-white font-cormorant text-sm sm:text-base leading-relaxed">
+        Gain opportunities through worldwide aviation partnerships.
+      </p>
+    }
+  />
 
-            {/* ITEM 04 */}
-            <div className="text-center sm:text-left">
-              <h3 className="font-cormorant text-[#C49A60] text-3xl sm:text-4xl mb-2 sm:mb-3">04</h3>
-              <h4 className="font-cormorant text-xl sm:text-2xl text-[#1A1A1A] mb-2 sm:mb-3">
-                Hands-On Training
-              </h4>
-              <p className="font-cormorant text-gray-600 text-sm sm:text-base leading-relaxed">
-                Real-time flying and practical operational experience.
-              </p>
-            </div>
+  <FlipBox
+    front={
+      <div className="text-center">
+        <h3 className="text-4xl text-black font-cormorant">04</h3>
+        <h4 className="text-2xl text-black font-cormorant">Hands-On Training</h4>
+      </div>
+    }
+    back={
+      <p className="text-white font-cormorant text-sm sm:text-base leading-relaxed">
+        Experience real-time flying and practical operations.
+      </p>
+    }
+  />
 
-            {/* ITEM 05 */}
-            <div className="text-center sm:text-left">
-              <h3 className="font-cormorant text-[#C49A60] text-3xl sm:text-4xl mb-2 sm:mb-3">05</h3>
-              <h4 className="font-cormorant text-xl sm:text-2xl text-[#1A1A1A] mb-2 sm:mb-3">
-                Comprehensive Support
-              </h4>
-              <p className="font-cormorant text-gray-600 text-sm sm:text-base leading-relaxed">
-                From interview prep to career guidance, full support is provided.
-              </p>
-            </div>
+  <FlipBox
+    front={
+      <div className="text-center">
+        <h3 className="text-4xl text-black font-cormorant">05</h3>
+        <h4 className="text-2xl text-black font-cormorant">Comprehensive Support</h4>
+      </div>
+    }
+    back={
+      <p className="text-white font-cormorant text-sm sm:text-base leading-relaxed">
+        From interview prep to full guidance — we support your journey.
+      </p>
+    }
+  />
 
-            {/* ITEM 06 */}
-            <div className="text-center sm:text-left">
-              <h3 className="font-cormorant text-[#C49A60] text-3xl sm:text-4xl mb-2 sm:mb-3">06</h3>
-              <h4 className="font-cormorant text-xl sm:text-2xl text-[#1A1A1A] mb-2 sm:mb-3">
-                Personalized Learning
-              </h4>
-              <p className="font-cormorant text-gray-600 text-sm sm:text-base leading-relaxed">
-                Tailored training programs to suit your aviation goals.
-              </p>
-            </div>
+  <FlipBox
+    front={
+      <div className="text-center">
+        <h3 className="text-4xl text-black font-cormorant">06</h3>
+        <h4 className="text-2xl text-black font-cormorant">Personalized Learning</h4>
+      </div>
+    }
+    back={
+      <p className="text-white font-cormorant text-sm sm:text-base leading-relaxed">
+        Customized training programs tailored to your aviation goals.
+      </p>
+    }
+  />
+
+
 
           </div>
 

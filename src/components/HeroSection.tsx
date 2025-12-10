@@ -47,12 +47,14 @@ export const HeroSection = () => {
           <div className="py-2 sm:py-3 md:py-4 max-w-xl">
             <p className="text-gray-200 text-xs sm:text-sm md:text-base lg:text-lg leading-relaxed font-inter">
               Join India's leading aviation training academy for <span className="text-gold font-semibold">Pilot</span>, <span className="text-gold font-semibold">Cabin Crew</span>, Drone, and Airport Operation Courses.
+
             </p>
           </div>
 
           {/* CTA Buttons */}
           <div className="flex flex-col sm:flex-row flex-wrap gap-2 sm:gap-3 md:gap-4 lg:gap-5 pt-1 sm:pt-2 md:pt-4">
             <button className="px-5 sm:px-6 md:px-8 lg:px-10 py-2.5 sm:py-3 md:py-3.5 lg:py-4 bg-gold border border-black/80 text-black font-bold font-monda text-xs sm:text-sm uppercase tracking-widest rounded-full shadow-[0_0_25px_rgba(217,167,74,0.4)] hover:bg-white hover:scale-105 transition-all duration-300">
+
               Enquire Now
             </button>
             
@@ -65,6 +67,7 @@ export const HeroSection = () => {
       </div>
 
       {/* 3. WHATSAPP FLOATING ACTION BUTTON */}
+
       <a
         href="https://wa.me/917668843739"
         target="_blank"

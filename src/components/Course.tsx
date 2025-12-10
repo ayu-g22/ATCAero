@@ -77,7 +77,7 @@ export const Course = () => {
     <section id="red-bg" className="bg-red w-full grid grid-cols-1 lg:grid-cols-2">
 
       {/* LEFT SIDE */}
-      <div className="px-6 sm:px-8 md:px-10 lg:px-16 xl:px-20 py-12 sm:py-16 md:py-20 flex flex-col justify-center">
+      <div className="px-6 sm:px-8 md:px-16 lg:px-20 xl:px-20 py-12 sm:py-16 md:py-20 flex flex-col justify-center">
         <h2 className="text-3xl sm:text-4xl md:text-5xl font-montserrat font-bold leading-tight text-white">
           Explore Our <br /> Aviation Courses
         </h2>
@@ -103,20 +103,18 @@ export const Course = () => {
   onMouseEnter={() => setOpenCard(card.id)}
   onMouseLeave={() => {
     if (card.id !== "pilot") {
-      setOpenCard("pilot"); // default card stays open
+      setOpenCard("pilot");
     }
   }}
   className={`
     ${card.bg} ${card.text}
     rounded-2xl sm:rounded-3xl shadow-xl transition-all duration-500 
-    cursor-pointer mt-[-8px] sm:mt-[-10px] w-full sm:w-[85%] md:w-[80%]
+    cursor-pointer mt-4 sm:mt-[-10px] w-full sm:w-[85%] md:w-[80%]
+    ${isOpen ? "flex flex-col justify-start" : "flex items-center justify-center"}
   `}
   style={{
     height: isOpen ? openHeight : collapsedHeight,
-    padding: isOpen ? "20px" : "14px",
-    transform: isOpen
-      ? "perspective(1000px) translateZ(60px) scale(1.08)"
-      : "perspective(1000px) translateZ(0) scale(1)",
+    padding: isOpen ? "20px" : "0px",  // NO PADDING in collapsed state
     transition: "all 0.4s ease",
     boxShadow: isOpen
       ? "0 20px 40px rgba(0,0,0,0.35)"
@@ -125,6 +123,7 @@ export const Course = () => {
     position: "relative",
   }}
 >
+
 
               <p
                 className={`
