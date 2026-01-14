@@ -165,8 +165,8 @@ export default function ContactPage() {
               <div className="flex items-center gap-4 text-gray-300">
                 <Phone className="text-gold" size={28} />
                 <div className="leading-relaxed text-lg">
-                  +91 9897567890 <br />
-                  +91 9876543458
+                  +91 9355133320 <br />
+                  +91 9355277747
                 </div>
               </div>
             </div>
@@ -177,7 +177,7 @@ export default function ContactPage() {
               <div className="flex items-center gap-4">
                 <Mail className="text-gold" size={28} />
                 <p className="text-lg font-semibold text-white">
-                  jijaji@atc_aero.com
+                  info.atcaviation@gmail.com
                 </p>
               </div>
             </div>
@@ -188,8 +188,8 @@ export default function ContactPage() {
               <div className="flex items-start gap-4">
                 <MapPin className="text-gold" size={28} />
                 <p className="text-lg leading-relaxed text-gray-300">
-                  123 Main Street, <br />
-                  City, State, Country
+                  Plot No. 20, Block H-1/A <br />
+                  Sector-63, Noida, 201301
                 </p>
               </div>
             </div>

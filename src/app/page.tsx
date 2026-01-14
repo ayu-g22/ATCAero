@@ -30,7 +30,7 @@ export default function Home() {
 
       <AboutSection/> 
       <WhyChooseUs />
-      <Testimonials/>
+      {/* <Testimonials/> */}
       <FAQ />
 
 

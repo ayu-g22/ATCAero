@@ -27,7 +27,7 @@ export const AboutSection = () => {
           {/* LEFT TEXT CONTENT */}
           <div className="text-white order-1 text-center lg:text-left">
             <p className="text-gold font-bold tracking-[0.2em] sm:tracking-[0.25em] font-montserrat text-sm sm:text-base md:text-lg mb-4 sm:mb-5 md:mb-6">
-              ABOUT ATC AERO
+              ABOUT ATC
             </p>
 
             <h2 className="font-playfair text-3xl sm:text-4xl md:text-5xl leading-tight sm:leading-[1.1] font-semibold mb-6 sm:mb-8 md:mb-10">

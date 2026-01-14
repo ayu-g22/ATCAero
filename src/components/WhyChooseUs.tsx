@@ -15,7 +15,7 @@ export const WhyChooseUs = () => {
 
           <h2 className="font-cormorant text-3xl sm:text-4xl md:text-5xl lg:text-6xl leading-tight sm:leading-[1.15] text-[#1A1A1A] mb-6 sm:mb-8 md:mb-10">
             Choose ATC <br />
-            AERO for <br />
+            for 
             Your Aviation <br />
             Success
           </h2>

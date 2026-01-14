@@ -33,7 +33,7 @@ export const Navbar = () => {
       >
         {/* Logo */}
         <Link href="/" className="flex-shrink-0">
-          <img src="/logo.png" className="h-10 md:h-12 w-auto" />
+          <img src="/logo.png" className="h-10 md:h-12 w-auto" alt="Logo" />
         </Link>
 
         {/* DESKTOP NAV — FIXED for md screens */}
@@ -54,7 +54,7 @@ export const Navbar = () => {
           {/* Courses Dropdown */}
           <div className="relative" ref={dropdownRef}>
             <button
-              onClick={() => setOpen(prev => !prev)}
+              onMouseEnter={() => setOpen(true)}
               className="text-white hover:text-gold flex items-center gap-1 text-sm whitespace-nowrap"
             >
               COURSES
@@ -73,13 +73,13 @@ export const Navbar = () => {
                   animate={{ opacity: 1, y: 0 }}
                   exit={{ opacity: 0, y: -10 }}
                   transition={{ duration: 0.25 }}
-                  className="absolute left-0 top-full mt-2 w-64 bg-black border border-gold rounded-xl shadow-xl p-5 text-white space-y-4 z-50"
+                  className="absolute left-0 top-full mt-2 w-72 bg-black border border-gold rounded-xl shadow-xl p-5 text-white space-y-4 z-50"
                 >
-                  <DropItem label="Pilot Training" />
-                  <DropItem label="Cabin Crew & Hospitality Training" />
-                  <DropItem label="Drone Pilot Training" />
-                  <DropItem label="Travel & Tourism" />
-                  <DropItem label="Airport Operation Courses" />
+                  <DropItem label="Pilot Training" href="/courses/pilot" />
+                  <DropItem label="Cabin Crew & Hospitality" href="/courses/cabinCrew" />
+                  <DropItem label="Drone Pilot Training" href="/courses/Drone" />
+                  <DropItem label="Travel & Tourism" href="/courses/travel" />
+                  <DropItem label="Airport Operation Courses" href="/courses/airport" />
                 </motion.div>
               )}
             </AnimatePresence>
@@ -113,34 +113,36 @@ export const Navbar = () => {
             <MobileNavItem label="HOME" href="/" onClick={() => setMobileMenuOpen(false)} />
 
             {/* MOBILE COURSES TOGGLE */}
-            <button
-              onClick={() => setMobileCoursesOpen(prev => !prev)}
-              className="flex items-center justify-between text-white text-lg border-b border-white/10 pb-3"
-            >
-              COURSES
-              <ChevronDown
-                size={22}
-                className={`text-gold transition-transform ${mobileCoursesOpen ? "rotate-180" : ""}`}
-              />
-            </button>
+            <div>
+              <button
+                onClick={() => setMobileCoursesOpen(prev => !prev)}
+                className="w-full flex items-center justify-between text-white text-lg border-b border-white/10 pb-3"
+              >
+                COURSES
+                <ChevronDown
+                  size={22}
+                  className={`text-gold transition-transform ${mobileCoursesOpen ? "rotate-180" : ""}`}
+                />
+              </button>
 
-            <AnimatePresence>
-              {mobileCoursesOpen && (
-                <motion.div
-                  initial={{ height: 0, opacity: 0 }}
-                  animate={{ height: "auto", opacity: 1 }}
-                  exit={{ height: 0, opacity: 0 }}
-                  transition={{ duration: 0.25 }}
-                  className="pl-3 text-white/70 space-y-3"
-                >
-                  <p>Pilot Training</p>
-                  <p>Cabin Crew & Hospitality Training</p>
-                  <p>Drone Pilot Training</p>
-                  <p>Travel & Tourism</p>
-                  <p>Airport Operation Courses</p>
-                </motion.div>
-              )}
-            </AnimatePresence>
+              <AnimatePresence>
+                {mobileCoursesOpen && (
+                  <motion.div
+                    initial={{ height: 0, opacity: 0 }}
+                    animate={{ height: "auto", opacity: 1 }}
+                    exit={{ height: 0, opacity: 0 }}
+                    transition={{ duration: 0.25 }}
+                    className="flex flex-col pl-4 mt-3 space-y-3 border-l-2 border-gold/30"
+                  >
+                    <MobileCourseLink href="/courses/pilot" label="Pilot Training" closeMenu={() => setMobileMenuOpen(false)} />
+                    <MobileCourseLink href="/courses/cabinCrew" label="Cabin Crew & Hospitality" closeMenu={() => setMobileMenuOpen(false)} />
+                    <MobileCourseLink href="/courses/Drone" label="Drone Pilot Training" closeMenu={() => setMobileMenuOpen(false)} />
+                    <MobileCourseLink href="/courses/travel" label="Travel & Tourism" closeMenu={() => setMobileMenuOpen(false)} />
+                    <MobileCourseLink href="/courses/airport" label="Airport Operation Courses" closeMenu={() => setMobileMenuOpen(false)} />
+                  </motion.div>
+                )}
+              </AnimatePresence>
+            </div>
 
             <MobileNavItem label="ABOUT" href="/about" onClick={() => setMobileMenuOpen(false)} />
             <MobileNavItem label="GALLERY" href="/gallery" onClick={() => setMobileMenuOpen(false)} />
@@ -152,6 +154,8 @@ export const Navbar = () => {
     </>
   );
 };
+
+/* --- SUB COMPONENTS --- */
 
 const NavItem = ({ label, href }: { label: string; href: string }) => (
   <Link href={href}>
@@ -173,14 +177,25 @@ const MobileNavItem = ({
   <Link
     href={href}
     onClick={onClick}
-    className="text-white text-lg border-b border-white/10 pb-3 hover:text-gold"
+    className="block text-white text-lg border-b border-white/10 pb-3 hover:text-gold"
   >
     {label}
   </Link>
 );
 
-const DropItem = ({ label }: { label: string }) => (
-  <motion.div whileHover={{ x: 6 }} className="text-white/90 hover:text-gold cursor-pointer">
+const DropItem = ({ label, href }: { label: string; href: string }) => (
+  <Link href={href} className="block w-full">
+    <motion.div 
+      whileHover={{ x: 6 }} 
+      className="text-white/90 hover:text-gold cursor-pointer transition-colors"
+    >
+      {label}
+    </motion.div>
+  </Link>
+);
+
+const MobileCourseLink = ({ label, href, closeMenu }: { label: string; href: string, closeMenu: () => void }) => (
+  <Link href={href} onClick={closeMenu} className="block text-white/70 hover:text-gold text-base">
     {label}
-  </motion.div>
+  </Link>
 );
