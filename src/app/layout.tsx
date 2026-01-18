@@ -1,3 +1,4 @@
+import ScrollPlane from "../components/ScrollPlane";
 import "./globals.css";
 import { Inter, Montserrat, Playfair_Display, Cormorant, Monda, Arimo } from "next/font/google";
 
@@ -62,6 +63,7 @@ export default function RootLayout({
           rel="stylesheet"
         />
       </head>
+       <ScrollPlane />
 
       <body>{children}</body>
     </html>

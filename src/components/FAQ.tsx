@@ -58,7 +58,7 @@ export default function FAQ() {
             {/* FAQ ROW 2 */}
             <AccordionItem value="item-2" className="border-b border-[#C49A60] py-3 sm:py-4">
               <AccordionTrigger
-                className="text-lg sm:text-xl md:text-2xl lg:text-white font-cormorant text-[#1A1A1A] hover:no-underline pr-2 text-left"
+                className="text-lg sm:text-xl md:text-2xl lg:text-white font-cormorant text-white hover:no-underline pr-2 text-left"
               >
                 Is your Pilot Training DGCA-approved?
               </AccordionTrigger>

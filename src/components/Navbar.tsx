@@ -9,8 +9,44 @@ export const Navbar = () => {
   const [open, setOpen] = useState(false);
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
   const [mobileCoursesOpen, setMobileCoursesOpen] = useState(false);
+  
+  // New state to track if we are over a red background
+  const [isRedBg, setIsRedBg] = useState(false);
 
   const dropdownRef = useRef<HTMLDivElement>(null);
+
+  /* ---- Handle Scroll for Logo Change ---- */
+  useEffect(() => {
+    const handleScroll = () => {
+      // Select all sections that have the red background. 
+      // (Note: Ideally, change id="red-bg" to className="red-bg-section" in your components for better HTML validity)
+      const redSections = document.querySelectorAll('[id="red-bg"]');
+      const navbarHeight = 80; // Approximate height of your navbar in pixels
+
+      let isOverRed = false;
+
+      redSections.forEach((section) => {
+        if (section instanceof HTMLElement) {
+          const rect = section.getBoundingClientRect();
+          
+          // Check if the navbar overlaps with the section
+          // rect.top < navbarHeight: Section top is above the navbar bottom
+          // rect.bottom > 0: Section bottom is below the viewport top
+          if (rect.top <= navbarHeight && rect.bottom >= 0) {
+            isOverRed = true;
+          }
+        }
+      });
+
+      setIsRedBg(isOverRed);
+    };
+
+    window.addEventListener("scroll", handleScroll);
+    // Trigger once on mount to set initial state
+    handleScroll();
+    
+    return () => window.removeEventListener("scroll", handleScroll);
+  }, []);
 
   /* ---- Close dropdown on outside click ---- */
   useEffect(() => {
@@ -31,9 +67,14 @@ export const Navbar = () => {
         transition={{ duration: 0.6 }}
         className="fixed top-0 left-0 w-full z-50 flex items-center justify-between px-4 md:px-6 lg:px-8 py-3 md:py-4"
       >
-        {/* Logo */}
+        {/* Logo - Switch based on isRedBg state */}
         <Link href="/" className="flex-shrink-0">
-          <img src="/logo.png" className="h-10 md:h-12 w-auto" alt="Logo" />
+          <img 
+            // CHANGE THIS: Replace '/logo-gold.png' with the specific logo file you want on red backgrounds
+            src={isRedBg ? "/logo-gold.png" : "/logo.png"} 
+            className="h-10 md:h-12 w-auto transition-all duration-300" 
+            alt="Logo" 
+          />
         </Link>
 
         {/* DESKTOP NAV — FIXED for md screens */}
@@ -86,8 +127,8 @@ export const Navbar = () => {
           </div>
 
           <NavItem label="ABOUT" href="/about" />
-          <NavItem label="GALLERY" href="/gallery" />
-          <NavItem label="CAREER" href="/career" />
+          <NavItem label="GALLERY" href="/coming-soon" />
+          <NavItem label="CAREER" href="/coming-soon" />
           <NavItem label="CONTACT" href="/contact" />
         </div>
 
@@ -145,8 +186,8 @@ export const Navbar = () => {
             </div>
 
             <MobileNavItem label="ABOUT" href="/about" onClick={() => setMobileMenuOpen(false)} />
-            <MobileNavItem label="GALLERY" href="/gallery" onClick={() => setMobileMenuOpen(false)} />
-            <MobileNavItem label="CAREER" href="/career" onClick={() => setMobileMenuOpen(false)} />
+            <MobileNavItem label="GALLERY" href="/coming-soon" onClick={() => setMobileMenuOpen(false)} />
+            <MobileNavItem label="CAREER" href="/coming-soon" onClick={() => setMobileMenuOpen(false)} />
             <MobileNavItem label="CONTACT" href="/contact" onClick={() => setMobileMenuOpen(false)} />
           </motion.div>
         )}
